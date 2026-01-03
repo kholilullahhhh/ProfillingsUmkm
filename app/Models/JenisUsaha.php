@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class JenisUsaha extends Model
 {
     use HasFactory;
+    // protected $table = 'jenis_usaha';
+    protected $fillable = ['nama_jenis', 'deskripsi'];
+
+    public function umkms()
+    {
+        return $this->hasMany(Umkm::class);
+    }
 }

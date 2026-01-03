@@ -5,10 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pembinaan extends Model
+class Produk extends Model
 {
     use HasFactory;
-    protected $fillable = ['umkm_id', 'judul_pembinaan', 'tanggal', 'deskripsi', 'hasil'];
+
+    protected $fillable = [
+        'umkm_id',
+        'nama_produk',
+        'kategori',
+        'harga',
+        'stok',
+        'satuan',
+        'status',
+        'deskripsi'
+    ];
 
     public function umkm()
     {
