@@ -174,14 +174,14 @@ Route::group(
             });
 
 
-            // Agenda
-            Route::prefix('agenda')->group(function () {
-                Route::get('/', 'AgendaController@index')->name('agenda.index');
-                Route::get('/create', 'AgendaController@create')->name('agenda.create');
-                Route::post('/store', 'AgendaController@store')->name('agenda.store');
-                Route::get('/edit/{id}', 'AgendaController@edit')->name('agenda.edit');
-                Route::put('/update', 'AgendaController@update')->name('agenda.update');
-                Route::post('/hapus/{id}', 'AgendaController@destroy')->name('agenda.hapus');
+            // Jenis Usaha
+            Route::prefix('jenis_usaha')->group(function () {
+                Route::get('/', 'JenisUsahaController@index')->name('jenis_usaha.index');
+                Route::get('/create', 'JenisUsahaController@create')->name('jenis_usaha.create');
+                Route::post('/store', 'JenisUsahaController@store')->name('jenis_usaha.store');
+                Route::get('/edit/{id}', 'JenisUsahaController@edit')->name('jenis_usaha.edit');
+                Route::put('/update', 'JenisUsahaController@update')->name('jenis_usaha.update');
+                Route::post('/hapus/{id}', 'JenisUsahaController@destroy')->name('jenis_usaha.hapus');
             });
 
             // Absensi
@@ -204,7 +204,7 @@ Route::group(
                 Route::post('/hapus/{id}', 'JadwalController@destroy')->name('jadwal.hapus');
 
 
- 
+
             });
 
             Route::prefix('jdwl')->group(function () {

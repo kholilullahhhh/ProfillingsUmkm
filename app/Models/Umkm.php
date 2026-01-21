@@ -12,7 +12,6 @@ class Umkm extends Model
     protected $fillable = [
         'user_id',
         'jenis_usaha_id',
-        
         'nama_usaha',
         'pemilik',
         'alamat',
@@ -38,7 +37,7 @@ class Umkm extends Model
     public function jenisUsaha()
     {
         return $this->belongsTo(JenisUsaha::class);
-    }
+    }   
     public function pembinaan()
     {
         return $this->hasMany(Pembinaan::class);

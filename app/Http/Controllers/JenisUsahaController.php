@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Agenda;
+use App\Models\JenisUsaha;
 use Illuminate\Http\Request;
 
-class AgendaController extends Controller
+class JenisUsahaController extends Controller
 {
 
-    private $menu = 'agenda';
+    private $menu = 'jenis_usaha';
 
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $datas = Agenda::get();
+        $datas = JenisUsaha::get();
         $menu = $this->menu;
-        return view('pages.admin.agenda.index', compact('menu', 'datas'));
+        return view('pages.admin.jenisUsaha.index', compact('menu', 'datas'));
     }
 
     /**
@@ -26,7 +26,7 @@ class AgendaController extends Controller
     public function create()
     {
         $menu = $this->menu;
-        return view('pages.admin.agenda.create', compact('menu'));
+        return view('pages.admin.jenisUsaha.create', compact('menu'));
     }
 
     /**
@@ -37,16 +37,16 @@ class AgendaController extends Controller
         $r = $request->all();
         $r['tempat_kegiatan'] = $r['lokasi_kegiatan'];
         // dd($r);
-        Agenda::create($r);
+        JenisUsaha::create($r);
 
 
-        return redirect()->route('agenda.index')->with('message', 'store');
+        return redirect()->route('jenis_usaha.index')->with('message', 'store');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Agenda $agenda)
+    public function show(JenisUsaha $jenis_usaha)
     {
         //
     }
@@ -56,10 +56,10 @@ class AgendaController extends Controller
      */
     public function edit($id)
     {
-        $data = Agenda::find($id);
+        $data = JenisUsaha::find($id);
         $menu = $this->menu;
 
-        return view('pages.admin.agenda.edit', compact('data', 'menu'));
+        return view('pages.admin.jenisUsaha.edit', compact('data', 'menu'));
     }
 
     /**
@@ -68,7 +68,7 @@ class AgendaController extends Controller
     public function update(Request $request)
     {
         $r = $request->all();
-        $data = Agenda::find($r['id']);
+        $data = JenisUsaha::find($r['id']);
 
         $r['nama_kegiatan'] = $r['judul'];
         $r['tempat_kegiatan'] = $r['lokasi_kegiatan'];
@@ -76,7 +76,7 @@ class AgendaController extends Controller
         // dd($r);
         $data->update($r);
 
-        return redirect()->route('agenda.index')->with('message', 'update');
+        return redirect()->route('jenis_usaha.index')->with('message', 'update');
 
 
     }
@@ -86,7 +86,7 @@ class AgendaController extends Controller
      */
     public function destroy($id)
     {
-        $data = Agenda::find($id);
+        $data = JenisUsaha::find($id);
         $data->delete();
         return response()->json($data);
     }

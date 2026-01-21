@@ -19,7 +19,7 @@
                 <div class="row">
 
                     <div class="col-md-12 col-lg-12">
-                        <form action="{{ route('agenda.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('jenis_usaha.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="card">
@@ -33,12 +33,13 @@
                                             <input required type="text" name="judul" class="form-control">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group row mb-4">
-                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Ruangan Agenda</label>
+                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Ruangan
+                                            Agenda</label>
                                         <div class="col-sm-6 col-md-4">
-                                            <input required type="text" value=""
-                                                class="form-control" name="lokasi_kegiatan">
+                                            <input required type="text" value="" class="form-control"
+                                                name="lokasi_kegiatan">
                                         </div>
                                     </div>
                                     {{-- <div class="form-group row mb-4">
@@ -61,18 +62,18 @@
                                     </div>
 
                                     <div class="form-group row mb-4">
-                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Tanggal Agenda</label>
+                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Tanggal
+                                            Agenda</label>
                                         <div class="col-sm-6 col-md-4 mb-4">
-                                            <input required  type="date" value=""
-                                                class="form-control" name="tgl_kegiatan">
+                                            <input required type="date" value="" class="form-control" name="tgl_kegiatan">
                                         </div>
                                     </div>
 
                                     <div class="form-group row mb-4">
-                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jam Agenda</label>
+                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jam
+                                            Agenda</label>
                                         <div class="col-sm-6 col-md-4 mb-4">
-                                            <input required  type="time" value=""
-                                                class="form-control" name="jam_mulai">
+                                            <input required type="time" value="" class="form-control" name="jam_mulai">
                                         </div>
                                     </div>
 
@@ -95,7 +96,7 @@
                                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                                         <div class="col-sm-12 col-md-7">
                                             <button class="btn btn-primary">Buat Agenda</button>
-                                            <a href="{{ route('agenda.index') }}" class="btn btn-warning">Kembali</a>
+                                            <a href="{{ route('jenis_usaha.index') }}" class="btn btn-warning">Kembali</a>
                                         </div>
                                     </div>
                                 </div>

@@ -168,7 +168,8 @@
                                     </div>
                                 </div>
                                 <div class="mt-3 text-right">
-                                    <a href="{{ route('agenda.index') }}" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
+                                    <a href="{{ route('jenis_usaha.index') }}" class="btn btn-sm btn-outline-primary">Lihat
+                                        Semua</a>
                                 </div>
                             </div>
                         </div>
@@ -362,7 +363,7 @@
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h6 class="m-0 font-weight-bold text-primary">Agenda Mendatang</h6>
                                 <div>
-                                    <a href="{{ route('agenda.create') }}" class="btn btn-sm btn-success">
+                                    <a href="{{ route('jenis_usaha.create') }}" class="btn btn-sm btn-success">
                                         <i class="bi bi-plus"></i> Tambah
                                     </a>
                                 </div>

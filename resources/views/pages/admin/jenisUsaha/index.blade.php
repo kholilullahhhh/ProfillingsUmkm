@@ -24,7 +24,7 @@
                             <div class="card-body">
                                 <!-- Navigation Buttons -->
 
-                                <a href="{{ route('agenda.create') }}" class="btn btn-primary text-white my-3">+ Tambah
+                                <a href="{{ route('jenis_usaha.create') }}" class="btn btn-primary text-white my-3">+ Tambah
                                     Agenda</a>
 
                                 <!-- Tables Section -->

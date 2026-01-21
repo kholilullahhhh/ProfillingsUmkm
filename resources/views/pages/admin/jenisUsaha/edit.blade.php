@@ -19,7 +19,7 @@
                 <div class="row">
 
                     <div class="col-md-12 col-lg-12">
-                        <form action="{{ route('agenda.update') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('jenis_usaha.update') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <input required type="hidden" name="id" value="{{ $data->id }}" class="form-control">
@@ -100,7 +100,7 @@
                                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                                         <div class="col-sm-12 col-md-7">
                                             <button class="btn btn-primary">Ubah Agenda</button>
-                                            <a href="{{ route('agenda.index') }}" class="btn btn-warning">Kembali</a>
+                                            <a href="{{ route('jenis_usaha.index') }}" class="btn btn-warning">Kembali</a>
                                         </div>
                                     </div>
                                 </div>
