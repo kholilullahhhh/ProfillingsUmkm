@@ -1,4 +1,5 @@
-@extends('layouts.app', ['title' => 'Data Tema'])
+@extends('layouts.app', ['title' => 'Tambah Jenis Usaha'])
+
 @section('content')
     @push('styles')
         <link rel="stylesheet" href="{{ asset('library/summernote/dist/summernote-bs4.css') }}">
@@ -11,108 +12,83 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Tambah Agenda Rapat</h1>
+                <h1>Tambah Jenis Usaha</h1>
             </div>
 
             <div class="section-body">
-
                 <div class="row">
-
-                    <div class="col-md-12 col-lg-12">
-                        <form action="{{ route('jenis_usaha.store') }}" method="POST" enctype="multipart/form-data">
+                    <div class="col-md-12">
+                        <form action="{{ route('jenis_usaha.store') }}" method="POST">
                             @csrf
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h4></h4>
+                                    <h4>Form Tambah Jenis Usaha</h4>
                                 </div>
+
                                 <div class="card-body">
+
+                                    {{-- Nama Jenis Usaha --}}
                                     <div class="form-group row mb-4">
-                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Judul</label>
+                                        <label for="nama_jenis"
+                                            class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                                            Nama Jenis Usaha <span class="text-danger">*</span>
+                                        </label>
+
                                         <div class="col-sm-12 col-md-7">
-                                            <input required type="text" name="judul" class="form-control">
+                                            <input type="text" id="nama_jenis" name="nama_jenis"
+                                                value="{{ old('nama_jenis') }}"
+                                                class="form-control @error('nama_jenis') is-invalid @enderror"
+                                                placeholder="Masukkan nama jenis usaha" required>
+
+                                            @error('nama_jenis')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
 
+                                    {{-- Deskripsi --}}
                                     <div class="form-group row mb-4">
-                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Ruangan
-                                            Agenda</label>
-                                        <div class="col-sm-6 col-md-4">
-                                            <input required type="text" value="" class="form-control"
-                                                name="lokasi_kegiatan">
-                                        </div>
-                                    </div>
-                                    {{-- <div class="form-group row mb-4">
-                                        <label
-                                            class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Kategori</label>
+                                        <label for="deskripsi"
+                                            class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                                            Deskripsi <span class="text-danger">*</span>
+                                        </label>
+
                                         <div class="col-sm-12 col-md-7">
-                                            <select required name="kategori_id" class="form-control selectric">
-                                                <option>Tech</option>
-                                                <option>News</option>
-                                                <option>Political</option>
-                                            </select>
+                                            <textarea id="deskripsi" name="deskripsi"
+                                                class="summernote @error('deskripsi') is-invalid @enderror"
+                                                required>{{ old('deskripsi') }}</textarea>
+
+                                            @error('deskripsi')
+                                                <div class="invalid-feedback d-block">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
-                                    </div> --}}
+                                    </div>
+
+                                    {{-- Tombol --}}
                                     <div class="form-group row mb-4">
-                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Isi
-                                            Agenda</label>
-                                        <div class="col-sm-12 col-md-7">
-                                            <textarea required name="deskripsi_kegiatan" class="summernote"></textarea>
+                                        <div class="col-md-7 offset-md-3">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="fas fa-save"></i> Simpan
+                                            </button>
+
+                                            <a href="{{ route('jenis_usaha.index') }}" class="btn btn-warning">
+                                                <i class="fas fa-arrow-left"></i> Kembali
+                                            </a>
                                         </div>
                                     </div>
 
-                                    <div class="form-group row mb-4">
-                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Tanggal
-                                            Agenda</label>
-                                        <div class="col-sm-6 col-md-4 mb-4">
-                                            <input required type="date" value="" class="form-control" name="tgl_kegiatan">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row mb-4">
-                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jam
-                                            Agenda</label>
-                                        <div class="col-sm-6 col-md-4 mb-4">
-                                            <input required type="time" value="" class="form-control" name="jam_mulai">
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row form-group mb-4">
-                                    </div>
-                                    <div class="form-group row mb-4">
-
-                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status</label>
-
-                                        <div class="col-sm-6 col-md-4">
-                                            <select class="form-control selectric" name="status" required>
-                                                <option value="publish">Publish</option>
-                                                <option value="pending">Pending</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row mb-4">
-                                        <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
-                                        <div class="col-sm-12 col-md-7">
-                                            <button class="btn btn-primary">Buat Agenda</button>
-                                            <a href="{{ route('jenis_usaha.index') }}" class="btn btn-warning">Kembali</a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
-
-
                         </form>
                     </div>
-
                 </div>
-
-
-
             </div>
-    </div>
-    </section>
+        </section>
     </div>
 
     @push('scripts')
@@ -120,10 +96,24 @@
         <script src="{{ asset('library/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
         <script src="{{ asset('library/summernote/dist/summernote-bs4.js') }}"></script>
         <script src="{{ asset('library/upload-preview/upload-preview.js') }}"></script>
-        <script src="{{ asset('js/page/features-post-create.js') }}"></script>
         <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
-        <script src="{{ asset('js/page/features-post-create.js') }}"></script>
 
-        <script src="{{ asset('js/page/forms-advanced-forms.js') }}"></script>
+        <script>
+            $(document).ready(function () {
+                $('.summernote').summernote({
+                    height: 200,
+                    toolbar: [
+                        ['style', ['style']],
+                        ['font', ['bold', 'underline', 'clear']],
+                        ['color', ['color']],
+                        ['para', ['ul', 'ol', 'paragraph']],
+                        ['table', ['table']],
+                        ['insert', ['link']],
+                        ['view', ['fullscreen', 'codeview']]
+                    ]
+                });
+            });
+        </script>
     @endpush
-@endsection
+
+@endsection 

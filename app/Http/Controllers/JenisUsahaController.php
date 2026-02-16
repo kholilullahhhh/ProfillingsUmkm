@@ -35,7 +35,6 @@ class JenisUsahaController extends Controller
     public function store(Request $request)
     {
         $r = $request->all();
-        $r['tempat_kegiatan'] = $r['lokasi_kegiatan'];
         // dd($r);
         JenisUsaha::create($r);
 
