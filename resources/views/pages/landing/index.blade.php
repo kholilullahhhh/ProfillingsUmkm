@@ -14,8 +14,8 @@
                     <div class="row align-items-center h-100">
                         <div class="col-md-12 text-center">
                             <h2 class="slide-title" data-animation-in="slideInLeft">Selamat Datang di</h2>
-                            <h3 class="slide-sub-title" data-animation-in="slideInRight">Sistem Penilaian Kinerja<br>
-                                SDI Bontoala Satu
+                            <h3 class="slide-sub-title" data-animation-in="slideInRight">Sistem Profiling & Pemetaan<br>
+                                UMKM Binaan
                             </h3>
                             <p data-animation-in="slideInLeft" data-duration-in="1.2">
                                 {{-- <a href="services.html" class="slider btn btn-primary">Our Services</a>
@@ -32,10 +32,10 @@
                 <div class="container h-100">
                     <div class="row align-items-center h-100">
                         <div class="col-md-12">
-                            <h2 class="slide-title-box" data-animation-in="slideInDown">Siap Melayani Anda</h2>
-                            <h3 class="slide-title" data-animation-in="fadeIn">Dedikasi Kami untuk Anda</h3>
-                            <h3 class="slide-sub-title" data-animation-in="slideInLeft">Sistem Penilaian Kinerja<br>
-                                SDI Bontoala Satu</h3>
+                             <h2 class="slide-title-box" data-animation-in="slideInDown">Siap Membantu UMKM Naik Kelas</h2>
+                            <h3 class="slide-title" data-animation-in="fadeIn">Dedikasi Kami untuk Pelaku Usaha</h3>
+                            <h3 class="slide-sub-title" data-animation-in="slideInLeft">Sistem Profiling & Pemetaan<br>
+                                UMKM Binaan</h3>
                             <p data-animation-in="slideInRight">
                                 {{-- <a href="services.html" class="slider btn btn-primary border">Pelayanan Kami</a> --}}
                             </p>
@@ -190,30 +190,16 @@
 
                 <div class="col-lg-12">
                     <div class="ts-intro">
-                        <h2 class="into-title">Tentang Kami</h2>
-                        <h3 class="into-sub-title">SDI BONTOALA SATU</h3>
+                       <h2 class="into-title">Tentang Aplikasi</h2>
+                        <h3 class="into-sub-title">Sistem Profiling UMKM Binaan</h3>
                         <p class="my-sub-content">
-                            Aplikasi Sistem Penilaian Kinerja Guru Honorer pada SDI Bontoala Satu dirancang untuk memberikan
-                            kemudahan dalam
-                            melakukan proses evaluasi dan penilaian kinerja guru honorer secara transparan dan terstruktur.
-                            Dengan memanfaatkan teknologi, sekolah dapat melakukan penilaian secara digital sehingga lebih
-                            cepat, akurat,
-                            dan efisien.
+                            Aplikasi Profiling & Pemetaan UMKM Binaan dirancang untuk membantu pemerintah daerah, dinas koperasi, dan lembaga pendamping dalam melakukan pendataan, evaluasi, dan pengembangan UMKM secara terstruktur dan digital. Dengan sistem ini, setiap UMKM dapat terpetakan dengan jelas berdasarkan potensi, kesiapan, dan kebutuhan pendampingannya.
                         </p>
                         <p class="my-sub-content">
-                            Penilaian mencakup berbagai aspek kinerja guru, termasuk kedisiplinan, kompetensi pedagogik,
-                            profesionalisme,
-                            serta tanggung jawab dalam melaksanakan tugas mengajar.
-                            Sistem ini mempermudah kepala sekolah maupun tim penilai untuk memberikan skor, memantau
-                            perkembangan, serta
-                            menghasilkan laporan kinerja secara otomatis.
+                            Profiling mencakup berbagai aspek usaha, antara lain legalitas usaha, kapasitas produksi, pemasaran digital, manajemen keuangan, serta potensi pengembangan. Sistem ini memudahkan admin dan pendamping untuk menginput data, memantau perkembangan, serta menyusun program intervensi yang tepat sasaran.
                         </p>
                         <p class="my-sub-content">
-                            Dengan adanya aplikasi ini, data penilaian tersimpan secara rapi dan terintegrasi,
-                            sehingga meminimalisir potensi kesalahan manual dalam proses evaluasi.
-                            Kami berkomitmen untuk menghadirkan sistem penilaian kinerja yang adil, transparan, dan
-                            bermanfaat
-                            bagi pengembangan kualitas guru honorer di SDI Bontoala Satu.
+                            Seluruh data profiling tersimpan rapi dan terintegrasi dalam satu platform, sehingga mendukung pengambilan keputusan berbasis data. Kami berkomitmen menghadirkan sistem profiling yang akurat, transparan, dan bermanfaat bagi pengembangan ekosistem UMKM yang berkelanjutan.
                         </p>
                     </div><!-- Intro box end -->
                 </div><!-- Col end -->
