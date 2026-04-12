@@ -132,9 +132,11 @@ $admin = Admin::create([
     {
         // $data = User::findOrFail($id);
         $data = Umkm::with('user')->findOrFail($id);
+    $jenisUsahas = JenisUsaha::all(); // Perbaikan: ambil semua data dari model JenisUsaha
+
         $menu = $this->menu;
 
-        return view('pages.admin.umkm.edit', compact('data', 'menu'));
+        return view('pages.admin.umkm.edit', compact('data', 'jenisUsahas','menu'));
     }
 
     /**
@@ -152,13 +154,17 @@ $admin = Admin::create([
     // }
 
 
-    public function update(Request $request)
+   public function update(Request $request)
 {
-    $user = User::findOrFail($request->id);
+    // ambil UMKM berdasarkan ID
+    $umkm = Umkm::findOrFail($request->id);
+
+    // ambil user dari relasi
+    $user = User::findOrFail($umkm->user_id);
 
     // update user
     $user->update([
-        'name' => $request->name,
+        'name' => $request->pemilik,
         'username' => $request->username,
         'jabatan' => $request->jabatan,
     ]);
@@ -169,23 +175,19 @@ $admin = Admin::create([
         ]);
     }
 
-    // update umkm
-    $umkm = Umkm::where('user_id', $user->id)->first();
-
-    if ($umkm) {
-        $umkm->update([
-            'jenis_usaha_id' => $request->jenis_usaha_id,
-            'nama_usaha' => $request->nama_usaha,
-            'pemilik' => $request->pemilik,
-            'alamat' => $request->alamat,
-            'kabupaten' => $request->kabupaten,
-            'tahun_berdiri' => $request->tahun_berdiri,
-            'skala_usaha' => $request->skala_usaha,
-            'omset_per_tahun' => $request->omset_per_tahun,
-            'kontak' => $request->kontak,
-            'status_binaan' => $request->status_binaan,
-        ]);
-    }
+    // update UMKM
+    $umkm->update([
+        'jenis_usaha_id' => $request->jenis_usaha_id,
+        'nama_usaha' => $request->nama_usaha,
+        'pemilik' => $request->pemilik,
+        'alamat' => $request->alamat,
+        'kabupaten' => $request->kabupaten,
+        'tahun_berdiri' => $request->tahun_berdiri,
+        'skala_usaha' => $request->skala_usaha,
+        'omset_per_tahun' => $request->omset_per_tahun,
+        'kontak' => $request->kontak,
+        'status_binaan' => $request->status_binaan,
+    ]);
 
     return redirect()->route('umkm.index')
         ->with('message', 'Data UMKM berhasil diperbarui');
