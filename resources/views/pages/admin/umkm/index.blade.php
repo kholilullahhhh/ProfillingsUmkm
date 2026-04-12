@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Data Pegawai'])
+@extends('layouts.app', ['title' => 'Data UMKM'])
 
 @section('content')
     @push('styles')
@@ -21,16 +21,48 @@
             .btn-action i {
                 margin-right: 0.25rem;
             }
+            
+            .badge-mikro {
+                background-color: #28a745;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 3px;
+                font-size: 12px;
+            }
+            
+            .badge-kecil {
+                background-color: #17a2b8;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 3px;
+                font-size: 12px;
+            }
+            
+            .badge-menengah {
+                background-color: #ffc107;
+                color: #212529;
+                padding: 5px 10px;
+                border-radius: 3px;
+                font-size: 12px;
+            }
+            
+            .badge-binaan {
+                background-color: #28a745;
+            }
+            
+            .badge-non-binaan {
+                background-color: #dc3545;
+            }
         </style>
     @endpush
 
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Data Guru Honorer</h1>
+                <h1>Data UMKM Binaan</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="{{ route('dashboard') }}">Dashboard</a></div>
-                    <div class="breadcrumb-item">Data Guru Honorer</div>
+                    <div class="breadcrumb-item">Data UMKM Binaan</div>
                 </div>
             </div>
 
@@ -39,10 +71,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Daftar Guru Honorer</h4>
+                                <h4>Daftar UMKM Binaan</h4>
                                 <div class="card-header-action">
-                                    <a href="{{ route('pegawai.create') }}" class="btn btn-primary btn-icon icon-left">
-                                        <i class="fas fa-plus"></i> Tambah Data Guru 
+                                    <a href="{{ route('umkm.create') }}" class="btn btn-primary btn-icon icon-left">
+                                        <i class="fas fa-plus"></i> Tambah Data UMKM
                                     </a>
                                 </div>
                             </div>
@@ -52,36 +84,48 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Nama</th>
-                                                <th>Username</th>
-                                                <th>NUPTK</th>
-                                                <th>Role</th>
+                                                <th>Nama Usaha</th>
+                                                <th>Pemilik</th>
+                                                <th>Jenis Usaha</th>
+                                                <th>Alamat</th>
+                                                <th>Kabupaten</th>
+                                                <th>Skala Usaha</th>
+                                                <th>Status Binaan</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($datas as $index => $user)
+                                            @foreach ($datas as $index => $umkm)
                                                 <tr>
                                                     <td>{{ $index + 1 }}</td>
-                                                    <td>{{ $user->name }}</td>
-                                                    <td>{{ $user->username }}</td>
-                                                    <td>{{ $user->nuptk ?? '-' }}</td>
+                                                    <td>{{ $umkm->nama_usaha }}</td>
+                                                    <td>{{ $umkm->pemilik }}</td>
+                                                    <td>{{ $umkm->jenisUsaha->nama_jenis ?? '-' }}</td>
+                                                    <td>{{ Str::limit($umkm->alamat, 50) }}</td>
+                                                    <td>{{ $umkm->kabupaten }}</td>
                                                     <td>
-                                                        @if($user->role == 'admin')
-                                                            <span class="badge badge-primary">Admin</span>
-                                                        @elseif($user->role == 'kepala_sekolah')
-                                                            <span class="badge badge-info">Kepala KUA</span>
+                                                        @if($umkm->skala_usaha == 'mikro')
+                                                            <span class="badge-mikro">Mikro</span>
+                                                        @elseif($umkm->skala_usaha == 'kecil')
+                                                            <span class="badge-kecil">Kecil</span>
                                                         @else
-                                                            <span class="badge badge-info">Pegawai</span>
+                                                            <span class="badge-menengah">Menengah</span>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if($umkm->status_binaan == 1)
+                                                            <span class="badge badge-success">Binaan</span>
+                                                        @else
+                                                            <span class="badge badge-danger">Non Binaan</span>
                                                         @endif
                                                     </td>
                                                     <td>
                                                         <div class="action-buttons">
-                                                            <a href="{{ route('pegawai.edit', $user->id) }}"
+                                                            <a href="{{ route('umkm.edit', $umkm->id) }}"
                                                                 class="btn btn-warning btn-action">
                                                                 <i class="fas fa-edit"></i> Edit
                                                             </a>
-                                                            <form action="{{ route('pegawai.hapus', $user->id) }}" method="POST"
+                                                            <form action="{{ route('umkm.hapus', $umkm->id) }}" method="POST"
                                                                 class="d-inline delete-form">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -125,7 +169,7 @@
 
                     Swal.fire({
                         title: 'Apakah Anda yakin?',
-                        text: "Data pegawai ini akan dihapus secara permanen!",
+                        text: "Data UMKM ini akan dihapus secara permanen!",
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',

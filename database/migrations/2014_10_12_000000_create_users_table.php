@@ -15,9 +15,8 @@ return new class extends Migration {
             $table->string('name');
             $table->string('username');
             $table->string('password'); 
-            $table->string('nuptk')->unique()->nullable(); // Nomor Unik Pendidik dan Tenaga Kependidikan
             $table->string('jabatan')->nullable();
-            $table->enum('role', ['admin', 'user','kepala_sekolah'])->default('user'); //user = guru
+            $table->enum('role', ['admin', 'user'])->default('user'); //user = umkm
             $table->rememberToken();
             $table->timestamps();
         });

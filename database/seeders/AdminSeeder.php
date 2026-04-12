@@ -34,7 +34,6 @@ class AdminSeeder extends Seeder
                 'name' => $guru['name'],
                 'username' => strtolower(Str::slug($guru['name'])),
                 'password' => bcrypt('user123'),
-                'nuptk' => str_pad(random_int(1000000000, 9999999999), 10, '0', STR_PAD_LEFT),
                 'jabatan' => $guru['jabatan'],
                 'role' => 'user',
             ]);
@@ -42,7 +41,6 @@ class AdminSeeder extends Seeder
                 'name' => $guru['name'],
                 'username' => strtolower(Str::slug($guru['name'])),
                 'password' => bcrypt('user123'),
-                'nuptk' => str_pad(random_int(1000000000, 9999999999), 10, '0', STR_PAD_LEFT),
                 'jabatan' => $guru['jabatan'],
                 'role' => 'user',
             ]);
@@ -56,17 +54,16 @@ class AdminSeeder extends Seeder
                 'password' => bcrypt('admin'),
                 'role' => 'admin',
             ],
-            [
-                'name' => 'Kepala Sekolah',
-                'username' => 'kepala',
-                'password' => bcrypt('kepala'),
-                'role' => 'kepala_sekolah',
-            ],
+            // [
+            //     'name' => 'Kepala Sekolah',
+            //     'username' => 'kepala',
+            //     'password' => bcrypt('kepala'),
+            //     'role' => 'kepala_sekolah',
+            // ],
             [
                 'name' => 'Guru',
                 'username' => 'guru',
                 'password' => bcrypt('guru'),
-                'nuptk' => '1234567890',
                 'role' => 'user',
             ],
         ];
@@ -76,7 +73,6 @@ class AdminSeeder extends Seeder
                 'name' => $acc['name'],
                 'username' => $acc['username'],
                 'password' => $acc['password'],
-                'nuptk' => $acc['nuptk'] ?? null,
                 'jabatan' => $acc['jabatan'] ?? null,
                 'role' => $acc['role'],
             ]);
@@ -84,7 +80,6 @@ class AdminSeeder extends Seeder
                 'name' => $acc['name'],
                 'username' => $acc['username'],
                 'password' => $acc['password'],
-                'nuptk' => $acc['nuptk'] ?? null,
                 'jabatan' => $acc['jabatan'] ?? null,
                 'role' => $acc['role'],
             ]);

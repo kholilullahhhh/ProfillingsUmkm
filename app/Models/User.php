@@ -19,16 +19,15 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'nuptk',
         'username',
         'password',
         'jabatan',
         'role'
     ];
 
-    public function class()
+    public function umkm()
     {
-        return $this->belongsTo(Classes::class, 'class_id', 'id');
+        return $this->belongsTo(Classes::class, 'umkm_id', 'id');
     }
     
 

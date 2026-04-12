@@ -130,15 +130,15 @@ Route::group(
             Route::get('/fetch-sekolah', ['GuruController@index', 'fetchSekolah'])->name('fetchSekolah');
 
 
-            // Pegawai
-            Route::prefix('pegawai')->group(function () {
-                Route::get('/', 'PegawaiController@index')->name('pegawai.index');
-                Route::get('/create', 'PegawaiController@create')->name('pegawai.create');
-                Route::post('/store', 'PegawaiController@store')->name('pegawai.store');
-                Route::get('/edit/{id}', 'PegawaiController@edit')->name('pegawai.edit');
-                Route::put('/update', 'PegawaiController@update')->name('pegawai.update');
-                // Route::post('/hapus/{id}', 'PegawaiController@destroy')->name('pegawai.hapus');
-                Route::delete('/hapus/{id}', 'PegawaiController@destroy')->name('pegawai.hapus');
+            // umkm
+            Route::prefix('umkm')->group(function () {
+                Route::get('/', 'UmkmController@index')->name('umkm.index');
+                Route::get('/create', 'UmkmController@create')->name('umkm.create');
+                Route::post('/store', 'UmkmController@store')->name('umkm.store');
+                Route::get('/edit/{id}', 'UmkmController@edit')->name('umkm.edit');
+                Route::put('/update', 'UmkmController@update')->name('umkm.update');
+                // Route::post('/hapus/{id}', 'UmkmController@destroy')->name('umkm.hapus');
+                Route::delete('/hapus/{id}', 'UmkmController@destroy')->name('umkm.hapus');
             });
 
             // Indikator
