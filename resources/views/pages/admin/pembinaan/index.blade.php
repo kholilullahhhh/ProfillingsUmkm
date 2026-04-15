@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Data Jadwal'])
+@extends('layouts.app', ['title' => 'Data Pembinaan'])
 
 @section('content')
     @push('styles')
@@ -9,7 +9,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Data Jadwal</h1>
+                <h1>Data Pembinaan</h1>
             </div>
 
             <div class="section-body">
@@ -19,24 +19,22 @@
                             <div class="card-body">
                                 @if (session('role') == 'admin')
                                     <!-- Navigation Buttons -->
-                                    <a href="{{ route('jadwal.create') }}" class="btn btn-primary text-white my-3">
-                                        <i class="fas fa-plus"></i> Tambah Jadwal
+                                    <a href="{{ route('pembinaan.create') }}" class="btn btn-primary text-white my-3">
+                                        <i class="fas fa-plus"></i> Tambah Pembinaan
                                     </a>
                                 @endif
 
                                 <!-- Tables Section -->
                                 <div class="table-responsive">
-                                    <table class="table table-striped" id="table-jadwal">
+                                    <table class="table table-striped" id="table-pembinaan">
                                         <thead>
                                             <tr>
                                                 <th class="text-center">#</th>
-                                                <th>Nama Guru</th>
-                                                <th>Mata Pelajaran</th>
+                                                <th>Nama UMKM</th>
+                                                <th>Judul Pembinaan</th>
                                                 <th>Tanggal</th>
-                                                <th>Jam Mulai</th>
-                                                <th>Jam Selesai</th>
-                                                <th>Keterangan</th>
-
+                                                <th>Deskripsi</th>
+                                                <th>Hasil</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -44,25 +42,16 @@
                                             @foreach ($datas as $i => $data)
                                                 <tr>
                                                     <td>{{ ++$i }}</td>
-                                                    <td>{{ $data->user->name ?? 'N/A' }}</td>
-                                                    <td>{{ $data->mapel->nama ?? 'N/A' }}</td>
+                                                    <td>{{ $data->umkm->nama_usaha ?? 'N/A' }}</td>
+                                                    <td>{{ $data->judul_pembinaan }}</td>
                                                     <td>{{ \Carbon\Carbon::parse($data->tanggal)->format('d F Y') }}</td>
-                                                    <td>{{ $data->jam_mulai }}</td>
-                                                    <td>{{ $data->jam_selesai }}</td>
+                                                    <td>{!! Str::limit($data->deskripsi, 50) ?? '-' !!}</td>
+                                                    <td>{!! Str::limit($data->hasil, 50) ?? '-' !!}</td>
                                                     <td>
-                                                        @if($data->keterangan == 'ya')
-                                                            <span class="badge badge-success">Aktif</span>
-                                                        @else
-                                                            <span class="badge badge-secondary">Tidak Aktif</span>
-                                                        @endif
-                                                    </td>
-
-                                                    <td>
-                                                        <a href="{{ route('jadwal.edit', $data->id) }}"
+                                                        <a href="{{ route('pembinaan.edit', $data->id) }}"
                                                             class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                                                         @if (session('role') == 'admin')
-
-                                                            <button onclick="deleteData({{ $data->id }}, 'jadwal')"
+                                                            <button onclick="deleteData({{ $data->id }}, 'pembinaan')"
                                                                 class="btn btn-danger btn-sm" title="Hapus">
                                                                 <i class="fas fa-trash-alt"></i>
                                                             </button>
@@ -88,19 +77,20 @@
         <script src="{{ asset('js/page/modules-datatables.js') }}"></script>
 
         <script type="text/javascript">
-                $('#table-jadwal').DataTable({
+            $(document).ready(function() {
+                $('#table-pembinaan').DataTable({
                     paging: true,
-                searching: true,
-                order: [[6, 'asc']], // urut berdasarkan kolom Tanggal Absensi (index ke-6 dari <th>)
+                    searching: true,
+                    order: [[3, 'desc']], // urut berdasarkan kolom Tanggal (index ke-3 dari <th>)
                     language: {
                         url: 'https://cdn.datatables.net/plug-ins/2.1.0/i18n/id.json',
-                        },
+                    },
                     columnDefs: [
-                    {orderable: false, targets: [7] }, // kolom Action tidak bisa sort
-                    {searchable: false, targets: [0, 7] } // kolom # dan Action tidak bisa search
+                        { orderable: false, targets: [6] }, // kolom Action tidak bisa sort
+                        { searchable: false, targets: [0, 6] } // kolom # dan Action tidak bisa search
                     ]
-                    });
-        </script>
+                });
+            });
         </script>
     @endpush
 @endsection

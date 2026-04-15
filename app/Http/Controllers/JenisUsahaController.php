@@ -69,8 +69,8 @@ class JenisUsahaController extends Controller
         $r = $request->all();
         $data = JenisUsaha::find($r['id']);
 
-        $r['nama_kegiatan'] = $r['judul'];
-        $r['tempat_kegiatan'] = $r['lokasi_kegiatan'];
+        // $r['nama_kegiatan'] = $r['judul'];
+        // $r['tempat_kegiatan'] = $r['lokasi_kegiatan'];
 
         // dd($r);
         $data->update($r);

@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Jadwal;
-use App\Models\Mapel;
+use App\Models\Pembinaan;
+use App\Models\Umkm;
 use App\Models\User;
 
 
-class JadwalController extends Controller
+class PembinaanController extends Controller
 {
-    private $menu = 'jadwal';
+private $menu = 'pembinaan';
 
     /**
      * Display a listing of the resource.
@@ -18,43 +18,43 @@ class JadwalController extends Controller
     public function index()
     {
         $menu = $this->menu;
-        $datas = Jadwal::with(['user', 'mapel'])->get();
-        return view('pages.admin.jadwal.index', compact('datas', 'menu'));
+        $datas = Pembinaan::with(['umkm'])->get();
+        return view('pages.admin.pembinaan.index', compact('datas', 'menu'));
     }
     public function create()
     {
         $menu = $this->menu;
-        $mapel = Mapel::all();
+        $umkm = Umkm::all();
         $users = User::where('role', 'user')->get();
-        return view('pages.admin.jadwal.create', compact('users', 'mapel', 'menu'));
+        return view('pages.admin.pembinaan.create', compact('users', 'umkm', 'menu'));
     }
 
     public function store(Request $request)
     {
         $r = $request->all();
-        Jadwal::create($r);
-        return redirect()->route('jadwal.index')->with('message', 'store');
+        Pembinaan::create($r);
+        return redirect()->route('pembinaan.index')->with('message', 'store');
     }
 
     public function edit($id)
     {
-        $data = Jadwal::find($id);
+        $data = Pembinaan::find($id);
         $menu = $this->menu;
-        $mapel = Mapel::all();
+        $umkm = Umkm::all();
         $users = User::where('role', 'user')->get();
-        return view('pages.admin.jadwal.edit', compact('data', 'mapel', 'users', 'menu'));
+        return view('pages.admin.pembinaan.edit', compact('data', 'umkm', 'users', 'menu'));
     }
     public function update(Request $request)
     {
         $r = $request->all();
-        $data = Jadwal::find($r['id']);
+        $data = Pembinaan::find($r['id']);
         // dd($r);
         $data->update($r);
-        return redirect()->route('jadwal.index')->with('message', 'update');
+        return redirect()->route('pembinaan.index')->with('message', 'update');
     }
     public function destroy($id)
     {
-        $data = Jadwal::find($id);
+        $data = pembinaan::find($id);
         $data->delete();
         return response()->json($data);
     }

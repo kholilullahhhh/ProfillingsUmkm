@@ -194,14 +194,14 @@ Route::group(
                 Route::post('/hapus/{id}', 'AbsensiController@destroy')->name('absensi.hapus');
             });
 
-            // Jadwal
-            Route::prefix('jadwal')->group(function () {
-                Route::get('/', 'JadwalController@index')->name('jadwal.index');
-                Route::get('/create', 'JadwalController@create')->name('jadwal.create');
-                Route::post('/store', 'JadwalController@store')->name('jadwal.store');
-                Route::get('/edit/{id}', 'JadwalController@edit')->name('jadwal.edit');
-                Route::put('/update', 'JadwalController@update')->name('jadwal.update');
-                Route::post('/hapus/{id}', 'JadwalController@destroy')->name('jadwal.hapus');
+            // pembinaan
+            Route::prefix('pembinaan')->group(function () {
+                Route::get('/', 'PembinaanController@index')->name('pembinaan.index');
+                Route::get('/create', 'PembinaanController@create')->name('pembinaan.create');
+                Route::post('/store', 'PembinaanController@store')->name('pembinaan.store');
+                Route::get('/edit/{id}', 'PembinaanController@edit')->name('pembinaan.edit');
+                Route::put('/update', 'PembinaanController@update')->name('pembinaan.update');
+                Route::post('/hapus/{id}', 'PembinaanController@destroy')->name('pembinaan.hapus');
 
 
 

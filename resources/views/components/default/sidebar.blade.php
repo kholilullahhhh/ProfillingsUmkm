@@ -18,7 +18,7 @@
 
             @if (session('role') == 'admin')
                 <li
-                    class="nav-item dropdown {{ ($menu == 'umkm' || $menu == 'jenis_usaha' || $menu == 'jadwal') ? 'active' : '' }}">
+                    class="nav-item dropdown {{ ($menu == 'umkm' || $menu == 'jenis_usaha' || $menu == 'pembinaan') ? 'active' : '' }}">
                     <a href="#" class="nav-link has-dropdown"><i class="fas fa-sitemap"></i>
                         <span>Master Data</span>
                     </a>
@@ -33,9 +33,9 @@
                                 Jenis Usaha
                             </a>
                         </li>
-                        <li class="{{ $menu == 'jadwal' ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('jadwal.index') }}">
-                                Data Jam Mengajar Guru
+                        <li class="{{ $menu == 'pembinaan' ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('pembinaan.index') }}">
+                                Pembinaan
                             </a>
                         </li>
                     </ul>
