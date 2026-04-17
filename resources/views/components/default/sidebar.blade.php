@@ -49,11 +49,11 @@
                     </a>
                 </li>
 
-                <li class="{{ $menu == 'absensi' ? 'active' : '' }}">
+                <!-- <li class="{{ $menu == 'absensi' ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('absensi.index') }}">
                         <i class="fas fa-wallet"></i> <span>Data Absen Rapat</span>
                     </a>
-                </li>
+                </li> -->
 
 
                 <li class="{{ $menu == 'akun' ? 'active' : '' }}">
@@ -68,14 +68,14 @@
 
             @if (session('role') == 'user')
 
-                <li class="{{ $menu == 'absensi' ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('user.absensi.index') }}">
-                        <i class="fas fa-wallet"></i> <span>Data Absen Rapat</span>
+                <li class="{{ $menu == 'umkm' ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('umkm.index') }}">
+                        <i class="fas fa-wallet"></i> <span>UMKM</span>
                     </a>
                 </li>
-                <li class="{{ $menu == 'jadwal' ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('user.jadwal.index') }}">
-                        <i class="fas fa-wallet"></i> <span>Data Input Nilai</span>
+                <li class="{{ $menu == 'pembinaan' ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('pembinaan.index') }}">
+                        <i class="fas fa-wallet"></i> <span>Pembinaan</span>
                     </a>
                 </li>
                 <li class="menu-header">Landing Page</li>

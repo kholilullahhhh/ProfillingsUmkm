@@ -25,11 +25,22 @@ class umkmController extends Controller
     //     return view('pages.admin.umkm.index', compact('menu', 'datas'));
     // }
     
-    public function index()
+   public function index()
 {
-    $datas = Umkm::with(['user', 'jenisUsaha'])
-        ->latest()
-        ->get();
+    $user = auth()->user();
+
+    if ($user->role == 'admin') {
+        // Admin lihat semua data
+        $datas = Umkm::with(['user', 'jenisUsaha'])
+            ->latest()
+            ->get();
+    } else {
+        // User hanya lihat data miliknya
+        $datas = Umkm::with(['user', 'jenisUsaha'])
+            ->where('user_id', $user->id)
+            ->latest()
+            ->get();
+    }
 
     $menu = $this->menu;
 
