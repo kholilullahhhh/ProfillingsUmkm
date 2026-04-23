@@ -139,6 +139,19 @@ Route::group(
                 Route::put('/update', 'UmkmController@update')->name('umkm.update');
                 // Route::post('/hapus/{id}', 'UmkmController@destroy')->name('umkm.hapus');
                 Route::delete('/hapus/{id}', 'UmkmController@destroy')->name('umkm.hapus');
+
+                Route::get('/{umkm_id}', 'UmkmController@produk')->name('produk.index');
+
+            });
+
+            // produk
+            Route::prefix('produk')->group(function () {
+                Route::get('/create', 'ProdukController@create')->name('produk.create');
+                Route::post('/store', 'ProdukController@store')->name('produk.store');
+                Route::get('/edit/{id}', 'ProdukController@edit')->name('produk.edit');
+                Route::put('/update', 'ProdukController@update')->name('produk.update');
+                // Route::post('/hapus/{id}', 'ProdukController@destroy')->name('produk.hapus');
+                Route::delete('/hapus/{id}', 'ProdukController@destroy')->name('produk.hapus');
             });
 
             // Indikator

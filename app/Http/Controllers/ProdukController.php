@@ -1,20 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Produk;
+use App\Models\umkm;
+
 
 use Illuminate\Http\Request;
-use App\Models\Student;
-use App\Models\Classes;
-use App\Models\User;
-use App\Models\Admin;
-use App\Models\Umkm;
-use App\Models\Produk;
-use App\Models\JenisUsaha;
 
-
-class umkmController extends Controller
+class ProdukController extends Controller
 {
-    private $menu = 'umkm';
+      private $menu = 'umkm';
 
     /**
      * Display a listing of the resource.
@@ -51,13 +46,14 @@ class umkmController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+ public function create($id)    
 {
     $menu = $this->menu;
-    $users = User::where('role', 'user')->get();
-    $jenisUsahas = JenisUsaha::all(); // Perbaikan: ambil semua data dari model JenisUsaha
-    
-    return view('pages.admin.umkm.create', compact('menu', 'users', 'jenisUsahas'));
+
+    // ambil data UMKM (optional, biar bisa ditampilkan di form)
+    $umkm = Umkm::findOrFail($id);
+
+    return view('pages.admin.produk.create', compact('menu', 'umkm'));
 }
 
     /**
@@ -151,19 +147,14 @@ $admin = Admin::create([
         return view('pages.admin.umkm.edit', compact('data', 'jenisUsahas','menu'));
     }
     public function produk($id)
-{
-    // ambil semua produk berdasarkan umkm_id
-    $datas = Produk::with('user')
-        ->where('umkm_id', $id)
-        ->latest()
-        ->get();
+    {
+        // $data = User::findOrFail($id);
+        $data = Produk::with('user')->findOrFail($id);
 
-    $menu = $this->menu;
+        $menu = $this->menu;
 
-    return view('pages.admin.produk.index', compact('datas', 'menu'));
-    
-}
-
+        return view('pages.admin.produk.index', compact('data','menu'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -253,5 +244,4 @@ $admin = Admin::create([
             ->with('error', 'Gagal hapus: ' . $e->getMessage());
     }
 }
-
 }

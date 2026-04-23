@@ -125,6 +125,10 @@
                                                                 class="btn btn-warning btn-action">
                                                                 <i class="fas fa-edit"></i> Edit
                                                             </a>
+                                                             <a href="{{ route('produk.index', $umkm->id) }}"
+                                                                class="btn btn-primary btn-action">
+                                                                <i class="fas fa-eye"></i> Produk
+                                                            </a>
                                                             <form action="{{ route('umkm.hapus', $umkm->id) }}" method="POST"
                                                                 class="d-inline delete-form">
                                                                 @csrf
