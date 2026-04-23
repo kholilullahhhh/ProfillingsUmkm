@@ -27,7 +27,8 @@
                                 <h4>Daftar Produk</h4>
                                 <div class="card-header-action">
                                     {{-- nanti bisa dipakai kalau ada create produk --}}
-                                    <a href="{{route ('produk.create')}}" class="btn btn-primary btn-icon icon-left">
+                                    <a href="{{ route('produk.create', $umkm->id) }}"
+                                        class="btn btn-primary btn-icon icon-left">
                                         <i class="fas fa-plus"></i> Tambah Produk
                                     </a>
                                 </div>
@@ -71,10 +72,10 @@
                                     </table>
                                 </div>
                                 <div class="mt-3">
-    <a href="{{ route('umkm.index') }}" class="btn btn-secondary">
-        <i class="fas fa-arrow-left"></i> Kembali ke Data UMKM
-    </a>
-</div>
+                                    <a href="{{ route('umkm.index') }}" class="btn btn-secondary">
+                                        <i class="fas fa-arrow-left"></i> Kembali ke Data UMKM
+                                    </a>
+                                </div>
                             </div>
 
                         </div>
@@ -112,7 +113,7 @@
                         text: '{{ session('error') }}',
                     });
                 @endif
-            });
+                            });
         </script>
     @endpush
 @endsection

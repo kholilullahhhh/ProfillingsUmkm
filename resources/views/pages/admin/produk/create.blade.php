@@ -42,7 +42,7 @@
                                     @csrf
 
                                     {{-- hidden relasi ke UMKM --}}
-                                    <input type="hidden" name="umkm_id" value="{{ $umkm_id ?? '' }}">
+                                    <input type="hidden" name="umkm_id" value="{{ $umkm->id }}">
 
                                     <div class="row">
                                         <!-- Left -->
@@ -83,14 +83,16 @@
                                             <div class="form-group">
                                                 <label>Status <span class="text-danger">*</span></label>
                                                 <select name="status" class="form-control" required>
-                                                    <option value="aktif" {{ old('status') == 'aktif' ? 'selected' : '' }}>Aktif</option>
+                                                    <option value="aktif" {{ old('status') == 'aktif' ? 'selected' : '' }}>
+                                                        Aktif</option>
                                                     <option value="nonaktif" {{ old('status') == 'nonaktif' ? 'selected' : '' }}>Nonaktif</option>
                                                 </select>
                                             </div>
 
                                             <div class="form-group">
                                                 <label>Deskripsi</label>
-                                                <textarea name="deskripsi" class="form-control" rows="5">{{ old('deskripsi') }}</textarea>
+                                                <textarea name="deskripsi" class="form-control"
+                                                    rows="5">{{ old('deskripsi') }}</textarea>
                                             </div>
                                         </div>
                                     </div>

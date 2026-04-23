@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class ProdukController extends Controller
 {
-      private $menu = 'umkm';
+    private $menu = 'umkm';
 
     /**
      * Display a listing of the resource.
@@ -20,41 +20,41 @@ class ProdukController extends Controller
     //     $menu = $this->menu;
     //     return view('pages.admin.umkm.index', compact('menu', 'datas'));
     // }
-    
-   public function index()
-{
-    $user = auth()->user();
 
-    if ($user->role == 'admin') {
-        // Admin lihat semua data
-        $datas = Umkm::with(['user', 'jenisUsaha'])
-            ->latest()
-            ->get();
-    } else {
-        // User hanya lihat data miliknya
-        $datas = Umkm::with(['user', 'jenisUsaha'])
-            ->where('user_id', $user->id)
-            ->latest()
-            ->get();
+    public function index()
+    {
+        $user = auth()->user();
+
+        if ($user->role == 'admin') {
+            // Admin lihat semua data
+            $datas = Umkm::with(['user', 'jenisUsaha'])
+                ->latest()
+                ->get();
+        } else {
+            // User hanya lihat data miliknya
+            $datas = Umkm::with(['user', 'jenisUsaha'])
+                ->where('user_id', $user->id)
+                ->latest()
+                ->get();
+        }
+
+        $menu = $this->menu;
+
+        return view('pages.admin.umkm.index', compact('menu', 'datas'));
     }
-
-    $menu = $this->menu;
-
-    return view('pages.admin.umkm.index', compact('menu', 'datas'));
-}
 
     /**
      * Show the form for creating a new resource.
      */
- public function create($id)    
-{
-    $menu = $this->menu;
+    public function create($id)
+    {
+        $menu = $this->menu;
 
-    // ambil data UMKM (optional, biar bisa ditampilkan di form)
-    $umkm = Umkm::findOrFail($id);
+        // ambil data UMKM (optional, biar bisa ditampilkan di form)
+        $umkm = Umkm::findOrFail($id);
 
-    return view('pages.admin.produk.create', compact('menu', 'umkm'));
-}
+        return view('pages.admin.produk.create', compact('menu', 'umkm'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -86,51 +86,35 @@ class ProdukController extends Controller
     //     }
     // }
 
-    public function store(Request $request)
-{
-    // cek username di users
-    // $cek = User::where('username', $request->username)->first();
-    $cek = Admin::where('username', $request->username)->where('role', $request->role)->first();
+    public function produkStore(Request $request)
+    {
+        // validasi sederhana
+        $request->validate([
+            'umkm_id' => 'required|exists:umkms,id',
+            'nama_produk' => 'required|string|max:255',
+            'harga' => 'required',
+            'stok' => 'required|integer|min:0',
+            'status' => 'required|in:aktif,nonaktif',
+        ]);
 
-    if ($cek) {
-        return redirect()->route('umkm.index')
-            ->with('message', 'Username sudah ada');
+        // bersihkan format harga (hapus titik)
+        $harga = str_replace('.', '', $request->harga);
+
+        // simpan produk
+        Produk::create([
+            'umkm_id' => $request->umkm_id,
+            'nama_produk' => $request->nama_produk,
+            'kategori' => $request->kategori,
+            'harga' => $harga,
+            'stok' => $request->stok,
+            'satuan' => $request->satuan,
+            'status' => $request->status,
+            'deskripsi' => $request->deskripsi,
+        ]);
+
+        return redirect()->route('produk.index', $request->umkm_id)
+            ->with('message', 'Produk berhasil ditambahkan');
     }
-
-    // simpan user
-    $user = User::create([
-    'name' => $request->pemilik,
-    'username' => $request->username,
-    'password' => bcrypt($request->password),
-    'jabatan' => $request->jabatan,
-    'role' => 'user'
-]);
-
-$admin = Admin::create([
-    'name' => $request->pemilik,
-    'username' => $request->username,
-    'password' => bcrypt($request->password),
-    'jabatan' => $request->jabatan,
-    'role' => 'user'
-]);
-
-    // simpan umkm
-    Umkm::create([
-        'user_id' => $user->id,
-        'jenis_usaha_id' => $request->jenis_usaha_id,
-        'nama_usaha' => $request->nama_usaha,
-        'pemilik' => $request->pemilik,
-        'alamat' => $request->alamat,
-        'kabupaten' => $request->kabupaten,
-        'tahun_berdiri' => $request->tahun_berdiri,
-        'skala_usaha' => $request->skala_usaha,
-        'omset_per_tahun' => $request->omset_per_tahun,
-        'kontak' => $request->kontak,
-        'status_binaan' => $request->status_binaan ?? true,
-    ]);
-
-    return redirect()->route('umkm.index')->with('message', 'Data UMKM berhasil ditambahkan');
-}
 
 
     /**
@@ -140,11 +124,11 @@ $admin = Admin::create([
     {
         // $data = User::findOrFail($id);
         $data = Umkm::with('user')->findOrFail($id);
-    $jenisUsahas = JenisUsaha::all(); // Perbaikan: ambil semua data dari model JenisUsaha
+        $jenisUsahas = JenisUsaha::all(); // Perbaikan: ambil semua data dari model JenisUsaha
 
         $menu = $this->menu;
 
-        return view('pages.admin.umkm.edit', compact('data', 'jenisUsahas','menu'));
+        return view('pages.admin.umkm.edit', compact('data', 'jenisUsahas', 'menu'));
     }
     public function produk($id)
     {
@@ -153,7 +137,7 @@ $admin = Admin::create([
 
         $menu = $this->menu;
 
-        return view('pages.admin.produk.index', compact('data','menu'));
+        return view('pages.admin.produk.index', compact('data', 'menu'));
     }
 
     /**
@@ -171,44 +155,44 @@ $admin = Admin::create([
     // }
 
 
-   public function update(Request $request)
-{
-    // ambil UMKM berdasarkan ID
-    $umkm = Umkm::findOrFail($request->id);
+    public function update(Request $request)
+    {
+        // ambil UMKM berdasarkan ID
+        $umkm = Umkm::findOrFail($request->id);
 
-    // ambil user dari relasi
-    $user = User::findOrFail($umkm->user_id);
+        // ambil user dari relasi
+        $user = User::findOrFail($umkm->user_id);
 
-    // update user
-    $user->update([
-        'name' => $request->pemilik,
-        'username' => $request->username,
-        'jabatan' => $request->jabatan,
-    ]);
-
-    if ($request->password) {
+        // update user
         $user->update([
-            'password' => bcrypt($request->password)
+            'name' => $request->pemilik,
+            'username' => $request->username,
+            'jabatan' => $request->jabatan,
         ]);
+
+        if ($request->password) {
+            $user->update([
+                'password' => bcrypt($request->password)
+            ]);
+        }
+
+        // update UMKM
+        $umkm->update([
+            'jenis_usaha_id' => $request->jenis_usaha_id,
+            'nama_usaha' => $request->nama_usaha,
+            'pemilik' => $request->pemilik,
+            'alamat' => $request->alamat,
+            'kabupaten' => $request->kabupaten,
+            'tahun_berdiri' => $request->tahun_berdiri,
+            'skala_usaha' => $request->skala_usaha,
+            'omset_per_tahun' => $request->omset_per_tahun,
+            'kontak' => $request->kontak,
+            'status_binaan' => $request->status_binaan,
+        ]);
+
+        return redirect()->route('umkm.index')
+            ->with('message', 'Data UMKM berhasil diperbarui');
     }
-
-    // update UMKM
-    $umkm->update([
-        'jenis_usaha_id' => $request->jenis_usaha_id,
-        'nama_usaha' => $request->nama_usaha,
-        'pemilik' => $request->pemilik,
-        'alamat' => $request->alamat,
-        'kabupaten' => $request->kabupaten,
-        'tahun_berdiri' => $request->tahun_berdiri,
-        'skala_usaha' => $request->skala_usaha,
-        'omset_per_tahun' => $request->omset_per_tahun,
-        'kontak' => $request->kontak,
-        'status_binaan' => $request->status_binaan,
-    ]);
-
-    return redirect()->route('umkm.index')
-        ->with('message', 'Data UMKM berhasil diperbarui');
-}
 
     /**
      * Remove the specified resource from storage.
@@ -232,16 +216,16 @@ $admin = Admin::create([
     // }
 
     public function destroy($id)
-{
-    try {
-        $user = User::findOrFail($id);
-        $user->delete();
+    {
+        try {
+            $user = User::findOrFail($id);
+            $user->delete();
 
-        return redirect()->route('umkm.index')
-            ->with('message', 'Data berhasil dihapus');
-    } catch (\Exception $e) {
-        return redirect()->route('umkm.index')
-            ->with('error', 'Gagal hapus: ' . $e->getMessage());
+            return redirect()->route('umkm.index')
+                ->with('message', 'Data berhasil dihapus');
+        } catch (\Exception $e) {
+            return redirect()->route('umkm.index')
+                ->with('error', 'Gagal hapus: ' . $e->getMessage());
+        }
     }
-}
 }

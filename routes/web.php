@@ -130,28 +130,23 @@ Route::group(
             Route::get('/fetch-sekolah', ['GuruController@index', 'fetchSekolah'])->name('fetchSekolah');
 
 
-            // umkm
             Route::prefix('umkm')->group(function () {
+
                 Route::get('/', 'UmkmController@index')->name('umkm.index');
                 Route::get('/create', 'UmkmController@create')->name('umkm.create');
                 Route::post('/store', 'UmkmController@store')->name('umkm.store');
                 Route::get('/edit/{id}', 'UmkmController@edit')->name('umkm.edit');
                 Route::put('/update', 'UmkmController@update')->name('umkm.update');
-                // Route::post('/hapus/{id}', 'UmkmController@destroy')->name('umkm.hapus');
                 Route::delete('/hapus/{id}', 'UmkmController@destroy')->name('umkm.hapus');
 
-                Route::get('/{umkm_id}', 'UmkmController@produk')->name('produk.index');
+                // ✅ PRODUK (lebih spesifik dulu)
+                Route::get('/{umkm_id}/produk', 'UmkmController@produk')->name('produk.index');
+                Route::get('/{umkm_id}/produk/create', 'UmkmController@produkCreate')->name('produk.create');
+                Route::post('/produk/store', 'UmkmController@produkStore')->name('produk.store');
+                Route::get('/produk/edit/{id}', 'UmkmController@produkEdit')->name('produk.edit');
+                Route::put('/produk/update', 'UmkmController@produkUpdate')->name('produk.update');
+                Route::delete('/produk/hapus/{id}', 'UmkmController@produkDestroy')->name('produk.hapus');
 
-            });
-
-            // produk
-            Route::prefix('produk')->group(function () {
-                Route::get('/create', 'ProdukController@create')->name('produk.create');
-                Route::post('/store', 'ProdukController@store')->name('produk.store');
-                Route::get('/edit/{id}', 'ProdukController@edit')->name('produk.edit');
-                Route::put('/update', 'ProdukController@update')->name('produk.update');
-                // Route::post('/hapus/{id}', 'ProdukController@destroy')->name('produk.hapus');
-                Route::delete('/hapus/{id}', 'ProdukController@destroy')->name('produk.hapus');
             });
 
             // Indikator
