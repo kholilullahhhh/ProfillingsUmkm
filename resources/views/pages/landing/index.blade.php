@@ -8,7 +8,7 @@
         </style>
     @endpush
     <div class="banner-carousel banner-carousel-1 mb-0">
-        <div class="banner-carousel-item" style="background-image:url({{ asset('landing/images/slider-main/bonto1.jpeg') }})">
+        <div class="banner-carousel-item" style="background-image:url({{ asset('landing/images/slider-main/dek1.webp') }})">
             <div class="slider-content">
                 <div class="container h-100">
                     <div class="row align-items-center h-100">
@@ -27,12 +27,12 @@
             </div>
         </div>
 
-        <div class="banner-carousel-item" style="background-image:url({{ asset('landing/images/slider-main/bonto2.jpeg') }})">
+        <div class="banner-carousel-item" style="background-image:url({{ asset('landing/images/slider-main/dek4.webp') }})">
             <div class="slider-content text-left">
                 <div class="container h-100">
                     <div class="row align-items-center h-100">
                         <div class="col-md-12">
-                             <h2 class="slide-title-box" data-animation-in="slideInDown">Siap Membantu UMKM Naik Kelas</h2>
+                            <h2 class="slide-title-box" data-animation-in="slideInDown">Siap Membantu UMKM Naik Kelas</h2>
                             <h3 class="slide-title" data-animation-in="fadeIn">Dedikasi Kami untuk Pelaku Usaha</h3>
                             <h3 class="slide-sub-title" data-animation-in="slideInLeft">Sistem Profiling & Pemetaan<br>
                                 UMKM Binaan</h3>
@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <div class="banner-carousel-item" style="background-image:url({{ asset('landing/images/slider-main/bonto3.jpeg') }})">
+        <div class="banner-carousel-item" style="background-image:url({{ asset('landing/images/slider-main/dek5.jpeg') }})">
             <div class="slider-content text-right">
                 <div class="container h-100">
                     <div class="row align-items-center h-100">
@@ -190,16 +190,24 @@
 
                 <div class="col-lg-12">
                     <div class="ts-intro">
-                       <h2 class="into-title">Tentang Aplikasi</h2>
+                        <h2 class="into-title">Tentang Aplikasi</h2>
                         <h3 class="into-sub-title">Sistem Profiling UMKM Binaan</h3>
                         <p class="my-sub-content">
-                            Aplikasi Profiling & Pemetaan UMKM Binaan dirancang untuk membantu pemerintah daerah, dinas koperasi, dan lembaga pendamping dalam melakukan pendataan, evaluasi, dan pengembangan UMKM secara terstruktur dan digital. Dengan sistem ini, setiap UMKM dapat terpetakan dengan jelas berdasarkan potensi, kesiapan, dan kebutuhan pendampingannya.
+                            Aplikasi Profiling & Pemetaan UMKM Binaan dirancang untuk membantu pemerintah daerah, dinas
+                            koperasi, dan lembaga pendamping dalam melakukan pendataan, evaluasi, dan pengembangan UMKM
+                            secara terstruktur dan digital. Dengan sistem ini, setiap UMKM dapat terpetakan dengan jelas
+                            berdasarkan potensi, kesiapan, dan kebutuhan pendampingannya.
                         </p>
                         <p class="my-sub-content">
-                            Profiling mencakup berbagai aspek usaha, antara lain legalitas usaha, kapasitas produksi, pemasaran digital, manajemen keuangan, serta potensi pengembangan. Sistem ini memudahkan admin dan pendamping untuk menginput data, memantau perkembangan, serta menyusun program intervensi yang tepat sasaran.
+                            Profiling mencakup berbagai aspek usaha, antara lain legalitas usaha, kapasitas produksi,
+                            pemasaran digital, manajemen keuangan, serta potensi pengembangan. Sistem ini memudahkan admin
+                            dan pendamping untuk menginput data, memantau perkembangan, serta menyusun program intervensi
+                            yang tepat sasaran.
                         </p>
                         <p class="my-sub-content">
-                            Seluruh data profiling tersimpan rapi dan terintegrasi dalam satu platform, sehingga mendukung pengambilan keputusan berbasis data. Kami berkomitmen menghadirkan sistem profiling yang akurat, transparan, dan bermanfaat bagi pengembangan ekosistem UMKM yang berkelanjutan.
+                            Seluruh data profiling tersimpan rapi dan terintegrasi dalam satu platform, sehingga mendukung
+                            pengambilan keputusan berbasis data. Kami berkomitmen menghadirkan sistem profiling yang akurat,
+                            transparan, dan bermanfaat bagi pengembangan ekosistem UMKM yang berkelanjutan.
                         </p>
                     </div><!-- Intro box end -->
                 </div><!-- Col end -->
@@ -207,16 +215,16 @@
 
 
                 <!-- <div class="col-lg-6 mt-4 mt-lg-4 justify-content-center">
-                                            <h3 class="into-sub-title"> </h3>
-                                            <div class="box-video"> -->
+                                                                <h3 class="into-sub-title"> </h3>
+                                                                <div class="box-video"> -->
 
                 <!--<iframe width="420" height="315" title="Program Pengembangan keprofesian Guru. Pendidikan Jasmani, olahraga dan kesehatan" src="https://www.youtube.com/embed/gJ3g7xX9O-s"-->
                 <!--    allowfullscreen>-->
                 <!--</iframe>-->
                 <!-- <div class="video-placeholder" data-src="https://www.youtube.com"
-                                                    onclick="loadVideo(this)">
-                                                    <div class="video-title">Rencana Pelaksanaan Pembelajaran</div>
-                                                </div> -->
+                                                                        onclick="loadVideo(this)">
+                                                                        <div class="video-title">Rencana Pelaksanaan Pembelajaran</div>
+                                                                    </div> -->
                 <!--<div class="video-title">Balai Besar Guru Penggerak</div>-->
             </div>
             <!--/ Accordion end -->
@@ -383,7 +391,7 @@
                     });
 
                     lazyVideos.forEach(function (video) {
-                                                                        lazyVideoObserv er.observe(video);
+                                                                                                                lazyVideoObserv er.observe(video);
                     });
                 } else {
                     // Fallback for older browsers
