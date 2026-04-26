@@ -1,10 +1,10 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="{{route('dashboard') }}">SDI BONTOALA</a>
+            <a href="{{route('dashboard') }}">DEKRANASDA UMKM</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{{route('dashboard') }}">SDI BONTOALA</a>
+            <a href="{{route('dashboard') }}">UMKM</a>
         </div>
 
         <ul class="sidebar-menu">
@@ -17,52 +17,52 @@
             </li>
 
             @if (session('role') == 'admin')
-                            <li
-                                class="nav-item dropdown {{ ($menu == 'umkm' || $menu == 'jenis_usaha' || $menu == 'pembinaan') ? 'active' : '' }}">
-                                <a href="#" class="nav-link has-dropdown"><i class="fas fa-sitemap"></i>
-                                    <span>Master Data</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="{{ $menu == 'umkm' ? 'active' : '' }}">
-                                        <a class="nav-link" href="{{ route('umkm.index') }}">
-                                            UMKM
+                <li
+                    class="nav-item dropdown {{ ($menu == 'umkm' || $menu == 'jenis_usaha' || $menu == 'pembinaan') ? 'active' : '' }}">
+                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-sitemap"></i>
+                        <span>Master Data</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="{{ $menu == 'umkm' ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('umkm.index') }}">
+                                UMKM
+                            </a>
+                        </li>
+                        <li class="{{ $menu == 'jenis_usaha' ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('jenis_usaha.index') }}">
+                                Jenis Usaha
+                            </a>
+                        </li>
+                        <li class="{{ $menu == 'pembinaan' ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('pembinaan.index') }}">
+                                Pembinaan
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+                <!-- <li class="{{ $menu == 'penilaian_kinerja' ? 'active' : '' }}">
+                                        <a class="nav-link" href="{{ route('penilaian_kinerja.index') }}">
+                                            <i class="fas fa-wallet"></i> <span>Data Laporan Kinerja</span>
                                         </a>
                                     </li>
-                                    <li class="{{ $menu == 'jenis_usaha' ? 'active' : '' }}">
-                                        <a class="nav-link" href="{{ route('jenis_usaha.index') }}">
-                                            Jenis Usaha
+                     -->
+                <!-- <li class="{{ $menu == 'absensi' ? 'active' : '' }}">
+                                        <a class="nav-link" href="{{ route('absensi.index') }}">
+                                            <i class="fas fa-wallet"></i> <span>Data Absen Rapat</span>
                                         </a>
-                                    </li>
-                                    <li class="{{ $menu == 'pembinaan' ? 'active' : '' }}">
-                                        <a class="nav-link" href="{{ route('pembinaan.index') }}">
-                                            Pembinaan
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                                    </li> -->
 
 
+                <li class="{{ $menu == 'akun' ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('akun.index') }}">
+                        <i class="fas fa-user"></i> <span>Data Akun</span>
+                    </a>
+                </li>
 
-                            <!-- <li class="{{ $menu == 'penilaian_kinerja' ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('penilaian_kinerja.index') }}">
-                                        <i class="fas fa-wallet"></i> <span>Data Laporan Kinerja</span>
-                                    </a>
-                                </li>
-                 -->
-                            <!-- <li class="{{ $menu == 'absensi' ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('absensi.index') }}">
-                                        <i class="fas fa-wallet"></i> <span>Data Absen Rapat</span>
-                                    </a>
-                                </li> -->
-
-
-                            <li class="{{ $menu == 'akun' ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('akun.index') }}">
-                                    <i class="fas fa-user"></i> <span>Data Akun</span>
-                                </a>
-                            </li>
-
-                            <li class="menu-header">Landing Page</li>
+                <li class="menu-header">Landing Page</li>
 
             @endif
 
