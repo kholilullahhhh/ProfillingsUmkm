@@ -245,6 +245,8 @@ Route::group(['prefix' => 'auth', 'namespace' => 'App\Http\Controllers'], functi
     Route::get('/', 'AuthController@login')->name('login');
     // Route::get('/reset', 'AuthController@reset')->name('reset');
     // Route::get('/reset_password', 'AuthController@reset_password')->name('reset.password');
+    Route::get('/register', 'AuthController@register')->name('register');
+    Route::post('/register_action', 'AuthController@register_action')->name('register_action');
     Route::post('/login', 'AuthController@login_action')->name('login_action');
     Route::get('/logout', function () {
         Session::flush();

@@ -43,7 +43,7 @@
                     <select class="form-control  selectric" name="role" id="">
                         <option value="">-- Pilih Role --</option>
                         <option value="admin">Admin</option>
-                        <option value="user">UMKM</option>
+                        <option value="user">User</option>
                     </select>
                 </div>
 
@@ -52,11 +52,19 @@
                         Login
                     </button>
                 </div>
+                    <div class="text-muted text-center">
+                        <a href="{{ route('register') }}">Belum Punya Akun? Regist</a>
+                    </div>
+                 
             </form>
 
 
         </div>
     </div>
+
+    
+    
+
     <div class="mt-5 text-muted text-center">
         <a href="/">Kembali ke beranda</a>
     </div>

@@ -27,26 +27,41 @@ class umkmController extends Controller
     // }
 
     public function index()
-    {
-        $user = auth()->user();
+{
+    $user = auth()->user();
+    $menu = $this->menu;
 
-        if ($user->role == 'admin') {
-            // Admin lihat semua data
-            $datas = Umkm::with(['user', 'jenisUsaha'])
-                ->latest()
-                ->get();
-        } else {
-            // User hanya lihat data miliknya
-            $datas = Umkm::with(['user', 'jenisUsaha'])
-                ->where('user_id', $user->id)
-                ->latest()
-                ->get();
-        }
+    if ($user->role == 'admin') {
 
-        $menu = $this->menu;
+        // Admin hanya 1 tabel: semua data
+        $datas = Umkm::with(['user', 'jenisUsaha'])
+            ->latest()
+            ->get();
 
         return view('pages.admin.umkm.index', compact('menu', 'datas'));
     }
+
+    // ===============================
+    // ROLE USER
+    // ===============================
+
+    // Tabel 1 : UMKM milik user login
+    $datas = Umkm::with(['user', 'jenisUsaha'])
+        ->where('user_id', $user->id)
+        ->latest()
+        ->get();
+
+    // Tabel 2 : Semua UMKM terdaftar
+    $allDatas = Umkm::with(['user', 'jenisUsaha'])
+        ->latest()
+        ->get();
+
+    return view('pages.admin.umkm.index', compact(
+        'menu',
+        'datas',
+        'allDatas'
+    ));
+}
 
     /**
      * Show the form for creating a new resource.
