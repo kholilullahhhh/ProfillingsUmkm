@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('nama_produk');
             $table->string('kategori')->nullable();
             $table->decimal('harga', 15, 2)->default(0);
-            $table->integer('stok')->default(0);
+            // $table->integer('stok')->default(0);
             $table->string('satuan')->nullable(); // pcs, kg, liter
             $table->enum('status', ['aktif', 'nonaktif'])->default('aktif');
             $table->text('deskripsi')->nullable();

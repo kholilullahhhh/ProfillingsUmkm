@@ -22,6 +22,7 @@
 
     <!-- CSS Libraries -->
     @stack('styles')
+    
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">

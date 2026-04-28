@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="{{route('dashboard') }}">DEKRANASDA UMKM</a>
+            <a href="{{route('dashboard') }}">DEKRANASDA SULSEL</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="{{route('dashboard') }}">UMKM</a>

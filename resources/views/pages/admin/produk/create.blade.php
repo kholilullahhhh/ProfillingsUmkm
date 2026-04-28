@@ -65,11 +65,6 @@
                                                     value="{{ old('harga') }}" required>
                                             </div>
 
-                                            <div class="form-group">
-                                                <label>Stok <span class="text-danger">*</span></label>
-                                                <input type="number" name="stok" class="form-control"
-                                                    value="{{ old('stok') }}" min="0" required>
-                                            </div>
                                         </div>
 
                                         <!-- Right -->
