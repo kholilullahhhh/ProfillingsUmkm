@@ -171,6 +171,8 @@
                                     <th>Kabupaten</th>
                                     <th>Skala Usaha</th>
                                     <th>Status Binaan</th>
+                                    <th>Aksi</th>
+
                                 </tr>
                             </thead>
 
@@ -201,6 +203,16 @@
                                                 <span class="badge badge-danger">Non Binaan</span>
                                             @endif
                                         </td>
+
+                                         <td>
+                                              <div class="action-buttons">
+                                                  <a href="{{ route('produk.index', $umkm->id) }}"
+                                                      class="btn btn-primary btn-action">
+                                                      <i class="fas fa-eye"></i> Produk
+                                                  </a>
+                                                  
+                                              </div>
+                                          </td>
 
                                     </tr>
                                 @endforeach

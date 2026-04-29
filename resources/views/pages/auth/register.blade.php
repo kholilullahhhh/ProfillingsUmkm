@@ -42,20 +42,9 @@
                     @enderror
                 </div>
 
-                {{-- Jabatan --}}
-                <div class="form-group">
-                    <label for="jabatan">Jabatan / Usaha</label>
-                    <input id="jabatan" type="text"
-                        class="form-control @error('jabatan') is-invalid @enderror"
-                        name="jabatan" value="{{ old('jabatan') }}">
-
-                    @error('jabatan')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
+                {{-- jabatan Hidden --}}
+                <input type="hidden" name="jabatan" value="-">
+                 
                 {{-- Password --}}
                 <div class="row">
                     <div class="form-group col-6">
