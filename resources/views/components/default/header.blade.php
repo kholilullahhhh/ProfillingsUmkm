@@ -1,4 +1,15 @@
-<div class="navbar-bg"></div>
+    @push('styles')
+        <style>
+            .navbar-bg {
+                background-color: red !important;
+            }
+
+            .main-navbar {
+                background-color: red !important;
+            }
+        </style>
+    @endpush
+<div class="navbar-bg bg-danger"></div>
 <nav class="navbar navbar-expand-lg main-navbar">
     <form class="form-inline mr-auto">
         <ul class="navbar-nav mr-3">

@@ -1,7 +1,7 @@
 @extends('layouts.landing.app')
 @section('content')
     <div id="banner-area" class="banner-area"
-        style="background-image:url({{ asset('landing/images/slider-main/bonto1.jpeg')}})">
+        style="background-image:url({{ asset('landing/images/slider-main/dek1.webp')}})">
         <div class="banner-text">
             <div class="container">
                 <div class="row">
@@ -40,7 +40,7 @@
                         </span>
                         <div class="ts-service-box-content">
                             <h4>Kunjungi Sekolah Kami</h4>
-                            <p> RC3Q+2M7, Taeng, Pallangga, Gowa Regency, South Sulawesi 90221
+                            <p> Jl. Jend. Sudirman No.48, Sawerigading, Makassar, South Sulawesi 90115
                             </p>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                         </span>
                         <div class="ts-service-box-content">
                             <h4>Email Kami</h4>
-                            <p>smktridharmamaros@gmail.com </p>
+                            <p>dekranasda@gmail.com </p>
                         </div>
                     </div>
                 </div><!-- Col 2 end -->
@@ -76,7 +76,7 @@
 
             <div class="google-map">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.4138013351717!2d119.43660337315202!3d-5.197466952405548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbee21448458805%3A0xd120be2abbbb1c44!2sSd%20Inpres%20Bontoala%20I!5e0!3m2!1sen!2sid!4v1755832598831!5m2!1sen!2sid"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.751486031009!2d119.41205397498217!3d-5.14365789483355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbf1d58d6ddfd51%3A0xbef406f893775b67!2sDekranasda%20Provinsi%20Sulsel!5e0!3m2!1sid!2sid!4v1777491111955!5m2!1sid!2sid"
                     width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>

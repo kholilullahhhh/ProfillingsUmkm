@@ -1,12 +1,12 @@
-<footer id="footer" class="footer bg-overlay">
+<footer id="footer" class="footer bg-danger">
     <div class="footer-main">
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-lg-4 col-md-6 footer-widget footer-about">
                     <h3 class="widget-title">Tentang Kami</h3>
                     <img loading="lazy" width="200px" class="footer-logo"
-                        src="{{ asset('landing/images/footer/tut.png') }}" alt="Constra">
-                    <p>SDI Bontoala Satu - Kementerian Pendidikan, Kebudayaan, Riset dan Teknologi</p>
+                        src="{{ asset('landing/images/footer/Dekranasda.png') }}" alt="Constra">
+                    <p>DEKRANASDA - Dewan Kerajinan Nasional<br> Daerah Sulawesi Selatan</p>
                     <div class="footer-social">
                         <ul>
                             <li><a href="https://www.facebook.com/" aria-label="Facebook"><i
@@ -25,10 +25,10 @@
                     <div class="working-hours">
                         <ul class="list-arrow">
                             <li>
-                                RC3Q+2M7, Taeng, Pallangga, Gowa Regency, South Sulawesi 90221
+                                Jl. Jend. Sudirman No.48, Sawerigading, Makassar, South Sulawesi 90115
                             </li>
                             <li>08898988988 </li>
-                            <li>sdibontoala1@gmail.com </li>
+                            <li>dekranasda@gmail.com </li>
                         </ul>
                     </div>
                 </div><!-- Col end -->
@@ -61,7 +61,7 @@
         </div><!-- Container end -->
     </div><!-- Footer main end -->
 
-    <div class="copyright">
+    <div class="copyright bg-danger">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">

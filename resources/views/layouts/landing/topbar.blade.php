@@ -6,7 +6,7 @@
                 <div class="row align-items-center">
                     <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
                         <a class="d-block" href="/">
-                            <img style="width:auto; height:80px" src="{{ asset('landing/images/footer/tut.png') }}"
+                            <img style="width:auto; height:80px" src="{{ asset('landing/images/footer/Dekranasda.png') }}"
                                 alt="BBGP SulSel">
                         </a>
                     </div><!-- logo end -->
@@ -33,13 +33,13 @@
                                 <div class="info-box">
                                     <div class="info-box-content">
                                         <p class="info-box-title">Email Kami</p>
-                                        <p class="info-box-subtitle">sdibontoala1@gmail.com </p>
+                                        <p class="info-box-subtitle">dekranasda@gmail.com </p>
                                     </div>
                                 </div>
                             </li>
 
                             <li class="header-get-a-quote">
-                                <a class="btn btn-primary" href="{{ route('user.kontak') }}">Kontak</a>
+                                <a class="btn btn-danger" href="{{ route('user.kontak') }}">Kontak</a>
                             </li>
                         </ul><!-- Ul end -->
                     </div><!-- header right end -->
@@ -49,11 +49,11 @@
         </div><!-- Container end -->
     </div>
 
-    <div class="site-navigation">
+    <div class="site-navigation bg-danger">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-danger p-0">
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false"
                             aria-label="Toggle navigation">

@@ -1,4 +1,15 @@
-<div class="navbar-bg"></div>
+    @push('styles')
+        <style>
+            .navbar-bg {
+                background-color: red !important;
+            }
+
+            .main-navbar {
+                background-color: red !important;
+            }
+        </style>
+    @endpush
+<div class="navbar-bg-danger"></div>
 <nav class="navbar navbar-expand-lg main-navbar">
     <a href="/" class="navbar-brand sidebar-gone-hide">RPPH Sulsel</a>
     <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
@@ -228,7 +239,7 @@
     </ul>
 </nav>
 
-<nav class="navbar navbar-secondary navbar-expand-lg">
+<nav class="navbar navbar-danger navbar-expand-lg">
     <div class="container">
         <ul class="navbar-nav">
             <li class="nav-item {{ $menu == 'profil' ? 'active' : '' }}">

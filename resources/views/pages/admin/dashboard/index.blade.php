@@ -153,7 +153,7 @@
             <!-- Summary Cards Row -->
             <div class="row mb-4">
                 <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="dashboard-card card h-100">
+                    <div class="dashboard-card card h-100 position-relative">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="card-icon">
@@ -164,6 +164,7 @@
                                     <div class="card-value">{{ number_format($totalUMKM) }}</div>
                                 </div>
                             </div>
+                            <a href="{{ route('umkm.index') }}" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -181,12 +182,13 @@
                                     <div class="card-value">{{ number_format($totalProduk) }}</div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
 
                 <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="dashboard-card card h-100">
+                    <div class="dashboard-card card h-100 position-relative">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="card-icon"
@@ -198,16 +200,21 @@
                                     <div class="card-value">{{ number_format($umkmBinaan) }}</div>
                                 </div>
                             </div>
+
                             <div class="mt-3">
                                 <div class="progress progress-custom">
                                     <div class="progress-bar bg-info"
                                         style="width: {{ $totalUMKM > 0 ? round(($umkmBinaan / $totalUMKM) * 100) : 0 }}%">
                                     </div>
                                 </div>
-                                <small
-                                    class="text-muted">{{ $totalUMKM > 0 ? round(($umkmBinaan / $totalUMKM) * 100) : 0 }}%
-                                    dari total UMKM</small>
+                                <small class="text-muted">
+                                    {{ $totalUMKM > 0 ? round(($umkmBinaan / $totalUMKM) * 100) : 0 }}%
+                                    dari total UMKM
+                                </small>
                             </div>
+
+                            <!-- Link klik seluruh card -->
+                            <a href="{{ route('umkm.index') }}" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -226,6 +233,7 @@
                                 </div>
                             </div>
                         </div>
+                        <a href="{{ route('pembinaan.index') }}" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
@@ -332,15 +340,17 @@
                             </h6>
                             <div class="d-flex">
                                 <select id="monthSelect" class="form-control form-control-sm mr-2">
-                                    @foreach(range(1, 12) as $month)
-                                        <option value="{{ $month }}" {{ $selectedMonth == $month ? 'selected' : '' }}>
+                                    @foreach (range(1, 12) as $month)
+                                        <option value="{{ $month }}"
+                                            {{ $selectedMonth == $month ? 'selected' : '' }}>
                                             {{ DateTime::createFromFormat('!m', $month)->format('F') }}
                                         </option>
                                     @endforeach
                                 </select>
                                 <select id="yearSelect" class="form-control form-control-sm">
-                                    @foreach(range(date('Y') - 2, date('Y') + 1) as $year)
-                                        <option value="{{ $year }}" {{ $selectedYear == $year ? 'selected' : '' }}>{{ $year }}
+                                    @foreach (range(date('Y') - 2, date('Y') + 1) as $year)
+                                        <option value="{{ $year }}"
+                                            {{ $selectedYear == $year ? 'selected' : '' }}>{{ $year }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -412,7 +422,8 @@
                                 <div class="list-item mb-3 p-3 rounded">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div>
-                                            <h6 class="font-weight-bold mb-1">{{ $pembinaan->umkm->nama_usaha ?? 'UMKM' }}</h6>
+                                            <h6 class="font-weight-bold mb-1">{{ $pembinaan->umkm->nama_usaha ?? 'UMKM' }}
+                                            </h6>
                                             <small class="text-muted d-block">
                                                 <i class="bi bi-calendar-event"></i>
                                                 {{ Carbon\Carbon::parse($pembinaan->tanggal)->format('d M Y') }}
@@ -509,9 +520,11 @@
                                             </small>
                                         </div>
                                         <div class="text-right">
-                                            <h6 class="mb-0 text-primary">Rp {{ number_format($produk->harga, 0, ',', '.') }}
+                                            <h6 class="mb-0 text-primary">Rp
+                                                {{ number_format($produk->harga, 0, ',', '.') }}
                                             </h6>
-                                            <small class="text-muted">Stok: {{ $produk->stok }} {{ $produk->satuan }}</small>
+                                            <small class="text-muted">Stok: {{ $produk->stok }}
+                                                {{ $produk->satuan }}</small>
                                         </div>
                                     </div>
                                 </div>
@@ -548,7 +561,8 @@
                                                 <td>{{ $umkm->nama_usaha }}</td>
                                                 <td>{{ ucfirst($umkm->skala_usaha ?? '-') }}</td>
                                                 <td>
-                                                    <span class="badge badge-info">{{ $umkm->pembinaan_count }} kali</span>
+                                                    <span class="badge badge-info">{{ $umkm->pembinaan_count }}
+                                                        kali</span>
                                                 </td>
                                             </tr>
                                         @empty
@@ -565,7 +579,7 @@
             </div>
 
             <!-- Tahun Berdiri Distribution -->
-            @if(count($tahunBerdiriDistribution) > 0)
+            @if (count($tahunBerdiriDistribution) > 0)
                 <div class="row">
                     <div class="col-12 mb-4">
                         <div class="dashboard-card card h-100">
@@ -590,7 +604,9 @@
         <script>
             // UMKM by Scale Chart
             var umkmScaleChart = new ApexCharts(document.querySelector("#umkmScaleChart"), {
-                series: [{{ $umkmByScale['mikro'] ?? 0 }}, {{ $umkmByScale['kecil'] ?? 0 }}, {{ $umkmByScale['menengah'] ?? 0 }}],
+                series: [{{ $umkmByScale['mikro'] ?? 0 }}, {{ $umkmByScale['kecil'] ?? 0 }},
+                    {{ $umkmByScale['menengah'] ?? 0 }}
+                ],
                 chart: {
                     type: 'donut',
                     height: 350
@@ -616,7 +632,7 @@
                                 total: {
                                     show: true,
                                     label: 'Total',
-                                    formatter: function (w) {
+                                    formatter: function(w) {
                                         return w.globals.seriesTotals.reduce((a, b) => {
                                             return a + b
                                         }, 0)
@@ -656,7 +672,9 @@
             var omzetByScaleChart = new ApexCharts(document.querySelector("#omzetByScaleChart"), {
                 series: [{
                     name: 'Omzet (Rp)',
-                    data: [{{ $omzetByScale['mikro'] ?? 0 }}, {{ $omzetByScale['kecil'] ?? 0 }}, {{ $omzetByScale['menengah'] ?? 0 }}]
+                    data: [{{ $omzetByScale['mikro'] ?? 0 }}, {{ $omzetByScale['kecil'] ?? 0 }},
+                        {{ $omzetByScale['menengah'] ?? 0 }}
+                    ]
                 }],
                 chart: {
                     type: 'bar',
@@ -671,7 +689,7 @@
                 colors: ['#4361ee'],
                 dataLabels: {
                     enabled: true,
-                    formatter: function (val) {
+                    formatter: function(val) {
                         return 'Rp ' + new Intl.NumberFormat('id-ID').format(val)
                     }
                 },
@@ -686,7 +704,7 @@
                         text: 'Omzet (Rp)'
                     },
                     labels: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return 'Rp ' + new Intl.NumberFormat('id-ID').format(val)
                         }
                     }
@@ -713,7 +731,7 @@
                 colors: ['#20c997'],
                 dataLabels: {
                     enabled: true,
-                    formatter: function (val) {
+                    formatter: function(val) {
                         return val + " UMKM"
                     }
                 },
@@ -775,7 +793,7 @@
                 },
                 tooltip: {
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return val + " kegiatan pembinaan"
                         }
                     }
@@ -806,7 +824,7 @@
                 },
                 dataLabels: {
                     enabled: true,
-                    formatter: function (val) {
+                    formatter: function(val) {
                         return val + " kegiatan"
                     }
                 },
@@ -823,7 +841,7 @@
                 },
                 tooltip: {
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return val + " kegiatan pembinaan"
                         }
                     }
@@ -831,7 +849,7 @@
             });
             pembinaanTrendChart.render();
 
-            @if(count($tahunBerdiriDistribution) > 0)
+            @if (count($tahunBerdiriDistribution) > 0)
                 // Tahun Berdiri Chart
                 var tahunBerdiriCategories = @json(array_keys($tahunBerdiriDistribution));
                 var tahunBerdiriData = @json(array_values($tahunBerdiriDistribution));
@@ -857,7 +875,7 @@
                     colors: ['#fd7e14'],
                     dataLabels: {
                         enabled: true,
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return val + " UMKM"
                         }
                     },
@@ -877,7 +895,7 @@
             @endif
 
             // Handle filter changes
-            $('#monthSelect, #yearSelect').change(function () {
+            $('#monthSelect, #yearSelect').change(function() {
                 const month = $('#monthSelect').val();
                 const year = $('#yearSelect').val();
                 window.location.href = "{{ route('dashboard') }}?month=" + month + "&year=" + year;

@@ -5,9 +5,9 @@
                 <ul class="top-info text-center text-md-left">
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
-                        <p class="info-text">98657 Jl. Pelita taeng no.20, Taeng, Kec. Pallangga, kabupaten Gowa,
+                        <p class="info-text">Jl. Jend. Sudirman No.48, Sawerigading, Kec. Ujung Pandang, Kota Makassar,
                             Sulawesi
-                            Selatan</p>
+                            Selatan </p>
                     </li>
                 </ul>
             </div>

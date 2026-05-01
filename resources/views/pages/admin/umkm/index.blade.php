@@ -6,7 +6,7 @@
             <link rel="stylesheet" href="{{ asset('library/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
             <link rel="stylesheet" href="{{ asset('library/sweetalert2/dist/sweetalert2.min.css') }}">
             <style>
-                .action-buttons {
+                    .action-buttons {
                     display: flex;
                     gap: 0.5rem;
                 }
