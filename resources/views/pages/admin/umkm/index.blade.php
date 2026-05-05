@@ -121,13 +121,14 @@
                                                         </td>
                                                         <td>
                                                             <div class="action-buttons">
-                                                                <a href="{{ route('umkm.edit', $umkm->id) }}"
-                                                                    class="btn btn-warning btn-action">
-                                                                    <i class="fas fa-edit"></i> Edit
-                                                                </a>
+                                                                
                                                                 <a href="{{ route('produk.index', $umkm->id) }}"
                                                                     class="btn btn-primary btn-action">
                                                                     <i class="fas fa-eye"></i> Produk
+                                                                </a>
+                                                                <a href="{{ route('umkm.edit', $umkm->id) }}"
+                                                                    class="btn btn-warning btn-action">
+                                                                    <i class="fas fa-edit"></i> 
                                                                 </a>
                                                                 <form action="{{ route('umkm.hapus', $umkm->id) }}" method="POST"
                                                                     class="d-inline delete-form">
@@ -135,7 +136,7 @@
                                                                     @method('DELETE')
                                                                     <button type="button"
                                                                         class="btn btn-danger btn-action delete-btn">
-                                                                        <i class="fas fa-trash"></i> Hapus
+                                                                        <i class="fas fa-trash"></i> 
                                                                     </button>
                                                                 </form>
                                                             </div>

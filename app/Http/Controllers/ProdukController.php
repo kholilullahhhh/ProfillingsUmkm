@@ -93,7 +93,7 @@ class ProdukController extends Controller
             'umkm_id' => 'required|exists:umkms,id',
             'nama_produk' => 'required|string|max:255',
             'harga' => 'required',
-            'stok' => 'required|integer|min:0',
+            // 'stok' => 'required|integer|min:0',
             'status' => 'required|in:aktif,nonaktif',
         ]);
 
@@ -106,7 +106,7 @@ class ProdukController extends Controller
             'nama_produk' => $request->nama_produk,
             'kategori' => $request->kategori,
             'harga' => $harga,
-            'stok' => $request->stok,
+            // 'stok' => $request->stok,
             'satuan' => $request->satuan,
             'status' => $request->status,
             'deskripsi' => $request->deskripsi,

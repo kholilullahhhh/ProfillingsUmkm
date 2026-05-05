@@ -110,7 +110,7 @@
 
                                             <div class="form-group">
                                                 <label>Kontak (No. HP/Telepon)</label>
-                                                <input type="text" name="kontak" class="form-control"
+                                                <input type="number " name="kontak" class="form-control"
                                                     value="{{ old('kontak', $data->kontak) }}" 
                                                     placeholder="Contoh: 081234567890">
                                             </div>

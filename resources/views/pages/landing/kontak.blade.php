@@ -39,7 +39,7 @@
                             <i class="fas fa-map-marker-alt mr-0"></i>
                         </span>
                         <div class="ts-service-box-content">
-                            <h4>Kunjungi Sekolah Kami</h4>
+                            <h4>Kunjungi lOKASI Kami</h4>
                             <p> Jl. Jend. Sudirman No.48, Sawerigading, Makassar, South Sulawesi 90115
                             </p>
                         </div>

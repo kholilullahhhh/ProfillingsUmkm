@@ -27,7 +27,7 @@ class User extends Authenticatable
 
     public function umkm()
     {
-        return $this->belongsTo(Classes::class, 'umkm_id', 'id');
+        return $this->belongsTo(Umkm::class, 'umkm_id', 'id');
     }
     
 
