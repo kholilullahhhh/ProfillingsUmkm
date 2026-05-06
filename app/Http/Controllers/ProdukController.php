@@ -101,7 +101,7 @@ class ProdukController extends Controller
 
         // bersihkan format harga (hapus titik)
         $harga = str_replace('.', '', $request->harga);
-         dd($request);
+        //  dd($request);
         // simpan produk
         Produk::create([
             'umkm_id' => $request->umkm_id,
