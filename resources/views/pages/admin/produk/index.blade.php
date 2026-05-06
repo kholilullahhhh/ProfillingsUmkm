@@ -43,7 +43,6 @@
                                                 <th>Nama Produk</th>
                                                 <th>Kategori</th>
                                                 <th>Harga</th>
-                                                <th>Stok</th>
                                                 <th>Satuan</th>
                                                 <th>Status</th>
                                                 <th>Deskripsi</th>
@@ -56,7 +55,6 @@
                                                     <td>{{ $produk->nama_produk }}</td>
                                                     <td>{{ $produk->kategori ?? '-' }}</td>
                                                     <td>Rp {{ number_format($produk->harga, 0, ',', '.') }}</td>
-                                                    <td>{{ $produk->stok }}</td>
                                                     <td>{{ $produk->satuan ?? '-' }}</td>
                                                     <td>
                                                         @if($produk->status == 'aktif')

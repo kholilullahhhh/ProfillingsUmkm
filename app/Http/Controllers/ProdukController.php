@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\Produk;
 use App\Models\umkm;
+use App\Models\JenisUsaha;
+use App\Models\User;
+
 
 
 use Illuminate\Http\Request;
@@ -93,20 +96,18 @@ class ProdukController extends Controller
             'umkm_id' => 'required|exists:umkms,id',
             'nama_produk' => 'required|string|max:255',
             'harga' => 'required',
-            // 'stok' => 'required|integer|min:0',
             'status' => 'required|in:aktif,nonaktif',
         ]);
 
         // bersihkan format harga (hapus titik)
         $harga = str_replace('.', '', $request->harga);
-
+         dd($request);
         // simpan produk
         Produk::create([
             'umkm_id' => $request->umkm_id,
             'nama_produk' => $request->nama_produk,
             'kategori' => $request->kategori,
             'harga' => $harga,
-            // 'stok' => $request->stok,
             'satuan' => $request->satuan,
             'status' => $request->status,
             'deskripsi' => $request->deskripsi,
